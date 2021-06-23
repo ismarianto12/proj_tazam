@@ -1,0 +1,13 @@
+{
+    "name": "Otorisasi",
+    "alias": "otorisasi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Otorisasi\\Providers\\OtorisasiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

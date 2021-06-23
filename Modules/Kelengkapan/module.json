@@ -1,0 +1,13 @@
+{
+    "name": "Kelengkapan",
+    "alias": "kelengkapan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Kelengkapan\\Providers\\KelengkapanServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

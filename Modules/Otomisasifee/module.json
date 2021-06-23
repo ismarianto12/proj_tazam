@@ -1,0 +1,13 @@
+{
+    "name": "Otomisasifee",
+    "alias": "otomisasifee",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Otomisasifee\\Providers\\OtomisasifeeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

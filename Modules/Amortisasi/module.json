@@ -1,0 +1,13 @@
+{
+    "name": "Amortisasi",
+    "alias": "amortisasi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Amortisasi\\Providers\\AmortisasiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

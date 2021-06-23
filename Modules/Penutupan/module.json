@@ -1,0 +1,13 @@
+{
+    "name": "Penutupan",
+    "alias": "penutupan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Penutupan\\Providers\\PenutupanServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

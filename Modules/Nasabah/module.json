@@ -1,0 +1,13 @@
+{
+    "name": "Nasabah",
+    "alias": "nasabah",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Nasabah\\Providers\\NasabahServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

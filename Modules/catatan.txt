@@ -1,0 +1,9 @@
+// command create module nwidart thirdparty   
+php artisan module:make <Module>
+
+// after module created then command to create module as controller livewire  
+php artisan module:make-livewire Nasabah Nasabah
+
+//models
+php artisan module:make-model <Table> <Modules>
+

@@ -1,0 +1,13 @@
+{
+    "name": "Aplikasi",
+    "alias": "aplikasi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Aplikasi\\Providers\\AplikasiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

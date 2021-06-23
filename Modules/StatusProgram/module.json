@@ -1,0 +1,13 @@
+{
+    "name": "StatusProgram",
+    "alias": "statusprogram",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\StatusProgram\\Providers\\StatusProgramServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

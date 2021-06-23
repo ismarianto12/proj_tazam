@@ -1,0 +1,13 @@
+{
+    "name": "Overide",
+    "alias": "overide",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Overide\\Providers\\OverideServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

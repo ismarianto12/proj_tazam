@@ -1,0 +1,13 @@
+{
+    "name": "Kjaminan",
+    "alias": "kjaminan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Kjaminan\\Providers\\KjaminanServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

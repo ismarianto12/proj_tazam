@@ -1,0 +1,13 @@
+{
+    "name": "UploadDoc",
+    "alias": "uploaddoc",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\UploadDoc\\Providers\\UploadDocServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
