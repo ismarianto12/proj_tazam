@@ -47,7 +47,7 @@ class ModulApp
 
     public static function buitlmenu($parent, $menu)
     {
-        $html = "<ul class='sidebar-menu'>";
+        $html = "";
         if (isset($menu['parents'][$parent])) {
             if ($parent == '0') {
                 if (isset($menu['position']['Bottom']) == "Bottom") {
@@ -63,20 +63,20 @@ class ModulApp
 
                 if (!isset($menu['parents'][$itemId])) {
                     if (preg_match("/^http/", strtolower($menu['items'][$itemId]->link))) {
-                        $html .= "<li><a class='nav-link has-dropdown' href='" . strtolower($menu['items'][$itemId]->link) . "'><i class='fa fa-files-o'></i>" . $menu['items'][$itemId]->nama_menu . "</a></li>";
+                        $html .= "<li><a class='nav-link ' href='" . strtolower($menu['items'][$itemId]->link) . "'><i class='fa fa-files-o'></i>" . $menu['items'][$itemId]->nama_menu . "</a></li>";
                     } else {
                         if ($menu['items'][$itemId]->id_parent == 0) :
-                            $html .= "<li><a class='nav-link has-dropdown' href='" . Url('/') . '' . strtolower($menu['items'][$itemId]->link) . "' data-toggle='dropdown'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span></a></li>";
+                            $html .= "<li><a class='nav-link' href='" . Url('/') . '' . strtolower($menu['items'][$itemId]->link) . "'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span></a></li>";
                         else :
-                            $html .= "<li class='dropdown'><a class='nav-link has-dropdown' href='" . Url('/') . '' . strtolower($menu['items'][$itemId]->link) . "' data-toggle='dropdown'><i class='fa fa-files-o'></i><span>" . $menu['items'][$itemId]->nama_menu . "</span></a></li>";
+                            $html .= "<li><a class='nav-link' href='" . Url('/') . '' . strtolower($menu['items'][$itemId]->link) . "' ><i class='fa fa-files-o'></i><span>" . $menu['items'][$itemId]->nama_menu . "</span></a></li>";
                         endif;
                     }
                 }
                 if (isset($menu['parents'][$itemId])) {
                     if (preg_match("/^http/", strtolower($menu['items'][$itemId]->link))) {
-                        $html .= "<li class='dropdown'><a class='nav-link' href='" . strtolower($menu['items'][$itemId]->link) . "'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span><i class='fa fa-angle-left pull-right'></i></a>";
+                        $html .= "<li class='nav-item dropdown'><a class='nav-link' href='" . strtolower($menu['items'][$itemId]->link) . "'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span><i class='fa fa-angle-left pull-right'></i></a>";
                     } else {
-                        $html .= "<li class='dropdown'><a class='nav-link' href='" . strtolower($menu['items'][$itemId]->link) . "'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span><i class='fa fa-angle-left pull-right'></i></a>";
+                        $html .= "<li class='nav-item dropdown'><a class='nav-link' href='" . strtolower($menu['items'][$itemId]->link) . "'>" . $icon . "<span>" . $menu['items'][$itemId]->nama_menu . "</span><i class='fa fa-angle-left pull-right'></i></a>";
                     }
                     $html .= self::buitlmenu($itemId, $menu);
                     $html .= "</li>";

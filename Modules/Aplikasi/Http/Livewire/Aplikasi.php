@@ -31,13 +31,31 @@ class Aplikasi extends Component
 
     public function render()
     {
-
-        // dd(Tmaplikasi::get());
-
+        // dd(Tmaplikasi::get()); 
         return view('aplikasi::livewire.aplikasi', [
             'aplikasi' => Tmmodul::search($this->search)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage),
         ])->layout('layouts.template');
+    }
+
+    public function create()
+    {
+    }
+
+    public function store()
+    {
+    }
+
+    public function edit()
+    {
+    }
+
+    public function upate()
+    {
+    }
+
+    public function delete($id)
+    {
     }
 }
