@@ -2,8 +2,14 @@
 php artisan module:make <Module>
 
 // after module created then command to create module as controller livewire  
-php artisan module:make-livewire Nasabah Nasabah
+php artisan module:make-livewire Aplikasi Aplikasi
 
 //models
 php artisan module:make-model <Table> <Modules>
 
+
+
+php artisan module:make Amortisasi
+
+
+php artisan module:make 

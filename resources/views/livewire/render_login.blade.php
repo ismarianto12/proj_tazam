@@ -1,43 +1,63 @@
 <div>
-    <div class="container container-login container-transparent animated fadeIn" style="display: block;">
 
-
-        <form wire:submit.prevent="actionprocess">
-            <div class="login-form">
-                <div class="form-group">
-                    <label for="username" class="placeholder"><b>Username</b></label>
-                    <input id="username" name="username" type="text"
-                        class="form-control @error('username') is-invalid @enderror" wire:model="username">
-                    @error('username') <span class="error">{{ $message }}</span> @enderror
-                </div>
-                <div class="form-group">
-                    <label for="password" class="placeholder"><b>Password</b></label>
-                    <a href="/forget-pass" class="link float-right">Lupa Password ?</a>
-                    <div class="position-relative">
-                        <input id="password" name="password" type="password"
-                            class="form-control @error('password') is-invalid @enderror" wire:model="password">
-                        <div class="show-password">
-                            <i class="icon-eye"></i>
-                        </div>
-                        @error('password') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-                </div>
-                <div class="form-group form-action-d-flex mb-3">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="rememberme">
-                        <label class="custom-control-label m-0" for="rememberme">Remember Me</label>
-                    </div>
-                    {{-- <a href="#" class="btn btn-secondary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign In</a> --}}
-                    <button type="submit" class="btn btn-secondary col-md-5 float-right mt-3 mt-sm-0 fw-bold">
-                        <i class="icon-user"></i>
-                        Login</button>
-                </div>
-
-            </div>
-        </form>
-        @if (Session::has('message'))
-            {!! session('message') !!}
-        @endif
+    <div class="login-brand">
+        <img src="{{ asset('/template') }}/assets/img/logo_pbs.png" alt="logo" width="200">
     </div>
 
+    <div class="card card-primary">
+        <div class="card-header">
+            <h4>TABUNGAN ZAM ZAM</h4>
+        </div>
+        <div class="card-body">
+            <form wire:submit.prevent="actionprocess" class="needs-validation" novalidate="">
+                <div class="form-group">
+                    <label for="email">Username</label>
+                    <input id="email" type="email" class="form-control @error('username') is-invalid @enderror"
+                        name="email" tabindex="1" wire:model="username">
+                    @error('username')
+                        <div class="invalid-feedback">
+                            Username harus di isi
+                        </div>
+                    @enderror
+
+                </div>
+
+                <div class="form-group">
+                    <div class="d-block">
+                        <label for="password" class="control-label">Password</label>
+                        <div class="float-right">
+                            <a href="auth-forgot-password.html" class="text-small">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" tabindex="1" wire:model="password">
+                    @error('password')
+                        <div class="invalid-feedback">
+                            password harus di isi
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
+                            id="remember-me">
+                        <label class="custom-control-label" for="remember-me">Remember Me</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4"
+                        wire:loading.attr="btn-progress disabled">
+                        Login
+                    </button>
+                </div>
+            </form>
+            @if (Session::has('message'))
+                {!! session('message') !!}
+            @endif
+        </div>
+    </div>
 </div>

@@ -2,66 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login</title>
-    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="https://themekita.com/demo-atlantis-bootstrap/livepreview/examples/assets/img/icon.ico"
-        type="image/x-icon" />
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <!-- Fonts and icons -->
-    <script src="{{ asset('template/assets/') }}/js/plugin/webfont/webfont.min.js"></script>
-    <script>
-        WebFont.load({
-            google: {
-                "families": ["Lato:300,400,700,900"]
-            },
-            custom: {
-                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands", "simple-line-icons"
-                ],
-                urls: ['{{ asset('template/assets/') }}/assets/css/fonts.min.css']
-            },
-            active: function() {
-                sessionStorage.fonts = true;
-            }
-        });
-    </script>
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('template/assets/') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('template/assets/') }}/css/atlantis.css">
-    @livewireStyles()
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('template/stisla') }}/node_modules/bootstrap-social/bootstrap-social.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('template/stisla') }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('template/stisla') }}/assets/css/components.css">
+    @livewireStyles
 </head>
 
-<body class="login" style="
-overflow: hidden;
-">
-    <div class="col-md-12 wrapper wrapper-login wrapper-login-full p-0 bg-white">
-        <div class="login-aside col-lg-8 col-md-8 d-flex flex-column align-items-center justify-content-center text-center"
-            style="
-            background: url('https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.oyorooms.com/id/blog/wp-content/uploads/2019/11/mandeh-2.jpeg');
-            background-size: cover;
-            background-position: bottom center;
+<body>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row" style="
+                margin-top: -72px;
             ">
-        </div>
-        <div class="login-aside col-lg-4 col-md-4 d-flex align-items-center justify-content-center bg-white">
-
-            <main class="py-4">
-                <center>
-                    <img src="{{ asset('/template') }}/assets/img/logo_pbs.png" class="img-responsive">
-                </center>
-                {{ $slot }}
-            </main>
-
-        </div>
+                    <div class="col-md-12">
+                        <div class="col-md-12 col-md-8 col-lg-4">
+                        </div>
+                        <div class="col-md-12 col-md-4 col-lg-4">
+                            {{ $slot }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    @livewireScripts()
 
-    <script src="{{ asset('template/assets/') }}/js/core/jquery.3.2.1.min.js"></script>
-    <script src="{{ asset('template/assets/') }}/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script src="{{ asset('template/assets/') }}/js/core/popper.min.js"></script>
-    <script src="{{ asset('template/assets/') }}/js/core/bootstrap.min.js"></script>
-    <script src="{{ asset('template/assets/') }}/js/atlantis.min.js"></script>
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="{{ asset('template/stisla') }}/assets/js/stisla.js"></script>
+
+    <!-- JS Libraies -->
+
+    <!-- Template JS File -->
+    <script src="{{ asset('template/stisla') }}/assets/js/scripts.js"></script>
+    <script src="{{ asset('template/stisla') }}/assets/js/custom.js"></script>
+
+    @livewireScripts
+
+    <!-- Page Specific JS File -->
 </body>
 
 </html>

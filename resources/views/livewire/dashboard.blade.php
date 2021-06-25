@@ -1,651 +1,665 @@
-     {{-- Because she competes with no one, no one can compete with her. --}}
-     <div class="content">
-         <div class="panel-header bg-primary-gradient">
-             <div class="page-inner py-5">
-                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                     <div>
-                         <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-                         <h5 class="text-white op-7 mb-2">TABUNGAN ZAM ZAM</h5>
-                     </div>
-                     <div class="ml-md-auto py-2 py-md-0">
-                         <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-                         <a href="#" class="btn btn-secondary btn-round">Add Customer</a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="page-inner mt--5">
-             <div class="row mt--2">
-                 <div class="col-md-6">
-                     <div class="card full-height">
-                         <div class="card-body">
-                             <div class="card-title">Overall statistics</div>
-                             <div class="card-category">Daily information about statistics in system</div>
-                             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-                                 <div class="px-2 pb-2 pb-md-0 text-center">
-                                     <div id="circles-1"></div>
-                                     <h6 class="fw-bold mt-3 mb-0">New Users</h6>
-                                 </div>
-                                 <div class="px-2 pb-2 pb-md-0 text-center">
-                                     <div id="circles-2"></div>
-                                     <h6 class="fw-bold mt-3 mb-0">Sales</h6>
-                                 </div>
-                                 <div class="px-2 pb-2 pb-md-0 text-center">
-                                     <div id="circles-3"></div>
-                                     <h6 class="fw-bold mt-3 mb-0">Subscribers</h6>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="card full-height">
-                         <div class="card-body">
-                             <div class="card-title">Total income & spend statistics</div>
-                             <div class="row py-3">
-                                 <div class="col-md-4 d-flex flex-column justify-content-around">
-                                     <div>
-                                         <h6 class="fw-bold text-uppercase text-success op-8">Total Income</h6>
-                                         <h3 class="fw-bold">$9.782</h3>
-                                     </div>
-                                     <div>
-                                         <h6 class="fw-bold text-uppercase text-danger op-8">Total Spend</h6>
-                                         <h3 class="fw-bold">$1,248</h3>
-                                     </div>
-                                 </div>
-                                 <div class="col-md-8">
-                                     <div id="chart-container">
-                                         <canvas id="totalIncomeChart"></canvas>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-8">
-                     <div class="card">
-                         <div class="card-header">
-                             <div class="card-head-row">
-                                 <div class="card-title">User Statistics</div>
-                                 <div class="card-tools">
-                                     <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-                                         <span class="btn-label">
-                                             <i class="fa fa-pencil"></i>
-                                         </span>
-                                         Export
-                                     </a>
-                                     <a href="#" class="btn btn-info btn-border btn-round btn-sm">
-                                         <span class="btn-label">
-                                             <i class="fa fa-print"></i>
-                                         </span>
-                                         Print
-                                     </a>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="chart-container" style="min-height: 375px">
-                                 <canvas id="statisticsChart"></canvas>
-                             </div>
-                             <div id="myChartLegend"></div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="card card-primary">
-                         <div class="card-header">
-                             <div class="card-title">Daily Sales</div>
-                             <div class="card-category">March 25 - April 02</div>
-                         </div>
-                         <div class="card-body pb-0">
-                             <div class="mb-4 mt-2">
-                                 <h1>$4,578.58</h1>
-                             </div>
-                             <div class="pull-in">
-                                 <canvas id="dailySalesChart"></canvas>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card">
-                         <div class="card-body pb-0">
-                             <div class="h1 fw-bold float-right text-warning">+7%</div>
-                             <h2 class="mb-2">213</h2>
-                             <p class="text-muted">Transactions</p>
-                             <div class="pull-in sparkline-fix">
-                                 <div id="lineChart"></div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="row row-card-no-pd">
-                 <div class="col-md-12">
-                     <div class="card">
-                         <div class="card-header">
-                             <div class="card-head-row card-tools-still-right">
-                                 <h4 class="card-title">Users Geolocation</h4>
-                                 <div class="card-tools">
-                                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span
-                                             class="fa fa-angle-down"></span></button>
-                                     <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span
-                                             class="fa fa-sync-alt"></span></button>
-                                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span
-                                             class="fa fa-times"></span></button>
-                                 </div>
-                             </div>
-                             <p class="card-category">
-                                 Map of the distribution of users around the world</p>
-                         </div>
-                         <div class="card-body">
-                             <div class="row">
-                                 <div class="col-md-6">
-                                     <div class="table-responsive table-hover table-sales">
-                                         <table class="table">
-                                             <tbody>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/id.png" alt="indonesia">
-                                                         </div>
-                                                     </td>
-                                                     <td>Indonesia</td>
-                                                     <td class="text-right">
-                                                         2.320
-                                                     </td>
-                                                     <td class="text-right">
-                                                         42.18%
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/us.png" alt="united states">
-                                                         </div>
-                                                     </td>
-                                                     <td>USA</td>
-                                                     <td class="text-right">
-                                                         240
-                                                     </td>
-                                                     <td class="text-right">
-                                                         4.36%
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/au.png" alt="australia">
-                                                         </div>
-                                                     </td>
-                                                     <td>Australia</td>
-                                                     <td class="text-right">
-                                                         119
-                                                     </td>
-                                                     <td class="text-right">
-                                                         2.16%
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/ru.png" alt="russia">
-                                                         </div>
-                                                     </td>
-                                                     <td>Russia</td>
-                                                     <td class="text-right">
-                                                         1.081
-                                                     </td>
-                                                     <td class="text-right">
-                                                         19.65%
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/cn.png" alt="china">
-                                                         </div>
-                                                     </td>
-                                                     <td>China</td>
-                                                     <td class="text-right">
-                                                         1.100
-                                                     </td>
-                                                     <td class="text-right">
-                                                         20%
-                                                     </td>
-                                                 </tr>
-                                                 <tr>
-                                                     <td>
-                                                         <div class="flag">
-                                                             <img src="../assets/img/flags/br.png" alt="brazil">
-                                                         </div>
-                                                     </td>
-                                                     <td>Brasil</td>
-                                                     <td class="text-right">
-                                                         640
-                                                     </td>
-                                                     <td class="text-right">
-                                                         11.63%
-                                                     </td>
-                                                 </tr>
-                                             </tbody>
-                                         </table>
-                                     </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                     <div class="mapcontainer">
-                                         <div id="map-example" class="vmap"></div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-4">
-                     <div class="card">
-                         <div class="card-header">
-                             <div class="card-title">Top Products</div>
-                         </div>
-                         <div class="card-body pb-0">
-                             <div class="d-flex">
-                                 <div class="avatar">
-                                     <img src="../assets/img/logoproduct.svg" alt="..."
-                                         class="avatar-img rounded-circle">
-                                 </div>
-                                 <div class="flex-1 pt-1 ml-2">
-                                     <h6 class="fw-bold mb-1">CSS</h6>
-                                     <small class="text-muted">Cascading Style Sheets</small>
-                                 </div>
-                                 <div class="d-flex ml-auto align-items-center">
-                                     <h3 class="text-info fw-bold">+$17</h3>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar">
-                                     <img src="../assets/img/logoproduct.svg" alt="..."
-                                         class="avatar-img rounded-circle">
-                                 </div>
-                                 <div class="flex-1 pt-1 ml-2">
-                                     <h6 class="fw-bold mb-1">J.CO Donuts</h6>
-                                     <small class="text-muted">The Best Donuts</small>
-                                 </div>
-                                 <div class="d-flex ml-auto align-items-center">
-                                     <h3 class="text-info fw-bold">+$300</h3>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar">
-                                     <img src="../assets/img/logoproduct3.svg" alt="..."
-                                         class="avatar-img rounded-circle">
-                                 </div>
-                                 <div class="flex-1 pt-1 ml-2">
-                                     <h6 class="fw-bold mb-1">Ready Pro</h6>
-                                     <small class="text-muted">Bootstrap 4 Admin Dashboard</small>
-                                 </div>
-                                 <div class="d-flex ml-auto align-items-center">
-                                     <h3 class="text-info fw-bold">+$350</h3>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="pull-in">
-                                 <canvas id="topProductsChart"></canvas>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="card-title fw-mediumbold">Suggested People</div>
-                             <div class="card-list">
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/jm_denis.jpg" alt="..."
-                                             class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">Jimmy Denis</div>
-                                         <div class="status">Graphic Designer</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/chadengle.jpg" alt="..."
-                                             class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">Chad</div>
-                                         <div class="status">CEO Zeleaf</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">Talha</div>
-                                         <div class="status">Front End Designer</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">John Doe</div>
-                                         <div class="status">Back End Developer</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">Talha</div>
-                                         <div class="status">Front End Designer</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                                 <div class="item-list">
-                                     <div class="avatar">
-                                         <img src="../assets/img/jm_denis.jpg" alt="..."
-                                             class="avatar-img rounded-circle">
-                                     </div>
-                                     <div class="info-user ml-3">
-                                         <div class="username">Jimmy Denis</div>
-                                         <div class="status">Graphic Designer</div>
-                                     </div>
-                                     <button class="btn btn-icon btn-primary btn-round btn-xs">
-                                         <i class="fa fa-plus"></i>
-                                     </button>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="card card-primary bg-primary-gradient">
-                         <div class="card-body">
-                             <h4 class="mt-3 b-b1 pb-2 mb-4 fw-bold">Active user right now</h4>
-                             <h1 class="mb-4 fw-bold">17</h1>
-                             <h4 class="mt-3 b-b1 pb-2 mb-5 fw-bold">Page view per minutes</h4>
-                             <div id="activeUsersChart"></div>
-                             <h4 class="mt-5 pb-3 mb-0 fw-bold">Top active pages</h4>
-                             <ul class="list-unstyled">
-                                 <li class="d-flex justify-content-between pb-1 pt-1">
-                                     <small>/product/readypro/index.html</small> <span>7</span>
-                                 </li>
-                                 <li class="d-flex justify-content-between pb-1 pt-1">
-                                     <small>/product/atlantis/demo.html</small> <span>10</span>
-                                 </li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6">
-                     <div class="card full-height">
-                         <div class="card-header">
-                             <div class="card-title">Feed Activity</div>
-                         </div>
-                         <div class="card-body">
-                             <ol class="activity-feed">
-                                 <li class="feed-item feed-item-secondary">
-                                     <time class="date" datetime="9-25">Sep 25</time>
-                                     <span class="text">Responded to need <a href="#">"Volunteer opportunity"</a></span>
-                                 </li>
-                                 <li class="feed-item feed-item-success">
-                                     <time class="date" datetime="9-24">Sep 24</time>
-                                     <span class="text">Added an interest <a href="#">"Volunteer Activities"</a></span>
-                                 </li>
-                                 <li class="feed-item feed-item-info">
-                                     <time class="date" datetime="9-23">Sep 23</time>
-                                     <span class="text">Joined the group <a href="single-group.php">"Boardsmanship
-                                             Forum"</a></span>
-                                 </li>
-                                 <li class="feed-item feed-item-warning">
-                                     <time class="date" datetime="9-21">Sep 21</time>
-                                     <span class="text">Responded to need <a href="#">"In-Kind Opportunity"</a></span>
-                                 </li>
-                                 <li class="feed-item feed-item-danger">
-                                     <time class="date" datetime="9-18">Sep 18</time>
-                                     <span class="text">Created need <a href="#">"Volunteer Opportunity"</a></span>
-                                 </li>
-                                 <li class="feed-item">
-                                     <time class="date" datetime="9-17">Sep 17</time>
-                                     <span class="text">Attending the event <a href="single-event.php">"Some New
-                                             Event"</a></span>
-                                 </li>
-                             </ol>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="card full-height">
-                         <div class="card-header">
-                             <div class="card-head-row">
-                                 <div class="card-title">Support Tickets</div>
-                                 <div class="card-tools">
-                                     <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm" id="pills-tab"
-                                         role="tablist">
-                                         <li class="nav-item">
-                                             <a class="nav-link" id="pills-today" data-toggle="pill" href="#pills-today"
-                                                 role="tab" aria-selected="true">Today</a>
-                                         </li>
-                                         <li class="nav-item">
-                                             <a class="nav-link active" id="pills-week" data-toggle="pill"
-                                                 href="#pills-week" role="tab" aria-selected="false">Week</a>
-                                         </li>
-                                         <li class="nav-item">
-                                             <a class="nav-link" id="pills-month" data-toggle="pill" href="#pills-month"
-                                                 role="tab" aria-selected="false">Month</a>
-                                         </li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="card-body">
-                             <div class="d-flex">
-                                 <div class="avatar avatar-online">
-                                     <span class="avatar-title rounded-circle border border-white bg-info">J</span>
-                                 </div>
-                                 <div class="flex-1 ml-3 pt-1">
-                                     <h6 class="text-uppercase fw-bold mb-1">Joko Subianto <span
-                                             class="text-warning pl-3">pending</span></h6>
-                                     <span class="text-muted">I am facing some trouble with my viewport. When i start
-                                         my</span>
-                                 </div>
-                                 <div class="float-right pt-1">
-                                     <small class="text-muted">8:40 PM</small>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar avatar-offline">
-                                     <span class="avatar-title rounded-circle border border-white bg-secondary">P</span>
-                                 </div>
-                                 <div class="flex-1 ml-3 pt-1">
-                                     <h6 class="text-uppercase fw-bold mb-1">Prabowo Widodo <span
-                                             class="text-success pl-3">open</span></h6>
-                                     <span class="text-muted">I have some query regarding the license issue.</span>
-                                 </div>
-                                 <div class="float-right pt-1">
-                                     <small class="text-muted">1 Day Ago</small>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar avatar-away">
-                                     <span class="avatar-title rounded-circle border border-white bg-danger">L</span>
-                                 </div>
-                                 <div class="flex-1 ml-3 pt-1">
-                                     <h6 class="text-uppercase fw-bold mb-1">Lee Chong Wei <span
-                                             class="text-muted pl-3">closed</span></h6>
-                                     <span class="text-muted">Is there any update plan for RTL version near
-                                         future?</span>
-                                 </div>
-                                 <div class="float-right pt-1">
-                                     <small class="text-muted">2 Days Ago</small>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar avatar-offline">
-                                     <span class="avatar-title rounded-circle border border-white bg-secondary">P</span>
-                                 </div>
-                                 <div class="flex-1 ml-3 pt-1">
-                                     <h6 class="text-uppercase fw-bold mb-1">Peter Parker <span
-                                             class="text-success pl-3">open</span></h6>
-                                     <span class="text-muted">I have some query regarding the license issue.</span>
-                                 </div>
-                                 <div class="float-right pt-1">
-                                     <small class="text-muted">2 Day Ago</small>
-                                 </div>
-                             </div>
-                             <div class="separator-dashed"></div>
-                             <div class="d-flex">
-                                 <div class="avatar avatar-away">
-                                     <span class="avatar-title rounded-circle border border-white bg-danger">L</span>
-                                 </div>
-                                 <div class="flex-1 ml-3 pt-1">
-                                     <h6 class="text-uppercase fw-bold mb-1">Logan Paul <span
-                                             class="text-muted pl-3">closed</span></h6>
-                                     <span class="text-muted">Is there any update plan for RTL version near
-                                         future?</span>
-                                 </div>
-                                 <div class="float-right pt-1">
-                                     <small class="text-muted">2 Days Ago</small>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+<section class="section">
+    <div class="section-header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Total Admin</h4>
+                    </div>
+                    <div class="card-body">
+                        10
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-danger">
+                    <i class="far fa-newspaper"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>News</h4>
+                    </div>
+                    <div class="card-body">
+                        42
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-warning">
+                    <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Reports</h4>
+                    </div>
+                    <div class="card-body">
+                        1,201
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-success">
+                    <i class="fas fa-circle"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Online Users</h4>
+                    </div>
+                    <div class="card-body">
+                        47
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Statistics</h4>
+                    <div class="card-header-action">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary">Week</a>
+                            <a href="#" class="btn">Month</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" height="182"></canvas>
+                    <div class="statistic-details mt-sm-4">
+                        <div class="statistic-details-item">
+                            <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>
+                                7%</span>
+                            <div class="detail-value">$243</div>
+                            <div class="detail-name">Today's Sales</div>
+                        </div>
+                        <div class="statistic-details-item">
+                            <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span>
+                                23%</span>
+                            <div class="detail-value">$2,902</div>
+                            <div class="detail-name">This Week's Sales</div>
+                        </div>
+                        <div class="statistic-details-item">
+                            <span class="text-muted"><span class="text-primary"><i
+                                        class="fas fa-caret-up"></i></span>9%</span>
+                            <div class="detail-value">$12,821</div>
+                            <div class="detail-name">This Month's Sales</div>
+                        </div>
+                        <div class="statistic-details-item">
+                            <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>
+                                19%</span>
+                            <div class="detail-value">$92,142</div>
+                            <div class="detail-name">This Year's Sales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Recent Activities</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled list-unstyled-border">
+                        <li class="media">
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-1.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="float-right text-primary">Now</div>
+                                <div class="media-title">Farhan A Mujib</div>
+                                <span class="text-small text-muted">Cras sit amet nibh libero, in
+                                    gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-2.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="float-right">12m</div>
+                                <div class="media-title">Ujang Maman</div>
+                                <span class="text-small text-muted">Cras sit amet nibh libero, in
+                                    gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-3.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="float-right">17m</div>
+                                <div class="media-title">Rizal Fakhri</div>
+                                <span class="text-small text-muted">Cras sit amet nibh libero, in
+                                    gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-4.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="float-right">21m</div>
+                                <div class="media-title">Alfa Zulkarnain</div>
+                                <span class="text-small text-muted">Cras sit amet nibh libero, in
+                                    gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text-center pt-1 pb-1">
+                        <a href="#" class="btn btn-primary btn-lg btn-round">
+                            View All
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+            <div class="card">
+                <div class="card-body pt-2 pb-2">
+                    <div id="myWeather">Please wait</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Authors</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row pb-2">
+                        <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
+                            <div class="avatar-item mb-0">
+                                <img alt="image" src="../assets/img/avatar/avatar-5.png" class="img-fluid"
+                                    data-toggle="tooltip" title="Alfa Zulkarnain">
+                                <div class="avatar-badge" title="Editor" data-toggle="tooltip"><i
+                                        class="fas fa-wrench"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
+                            <div class="avatar-item mb-0">
+                                <img alt="image" src="../assets/img/avatar/avatar-4.png" class="img-fluid"
+                                    data-toggle="tooltip" title="Egi Ferdian">
+                                <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
+                            <div class="avatar-item mb-0">
+                                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="img-fluid"
+                                    data-toggle="tooltip" title="Jaka Ramadhan">
+                                <div class="avatar-badge" title="Author" data-toggle="tooltip"><i
+                                        class="fas fa-pencil-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
+                            <div class="avatar-item mb-0">
+                                <img alt="image" src="../assets/img/avatar/avatar-2.png" class="img-fluid"
+                                    data-toggle="tooltip" title="Ryan">
+                                <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Referral URL</h4>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">2,100</div>
+                        <div class="font-weight-bold mb-1">Google</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">1,880</div>
+                        <div class="font-weight-bold mb-1">Facebook</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="67%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
-     @section('script')
-         <script src="{{ asset('template/assets/') }}/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-         <script src="{{ asset('template/assets/') }}/js/atlantis.min.js"></script>
-         <!-- Atlantis DEMO methods, don't include it in your project! -->
-         <script src="{{ asset('template/assets/') }}/js/setting-demo.js"></script>
-         <script src="{{ asset('template/assets/') }}/js/demo.js"></script>
-         <script>
-             document.addEventListener('DOMContentLoaded', function() {
-                 document.addEventListener("turbolinks:load", function() {
-                     Circles.create({
-                         id: 'circles-1',
-                         radius: 45,
-                         value: 60,
-                         maxValue: 100,
-                         width: 7,
-                         text: 5,
-                         colors: ['#f1f1f1', '#FF9E27'],
-                         duration: 400,
-                         wrpClass: 'circles-wrp',
-                         textClass: 'circles-text',
-                         styleWrapper: true,
-                         styleText: true
-                     })
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">1,521</div>
+                        <div class="font-weight-bold mb-1">Bing</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="58%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
-                     Circles.create({
-                         id: 'circles-2',
-                         radius: 45,
-                         value: 70,
-                         maxValue: 100,
-                         width: 7,
-                         text: 36,
-                         colors: ['#f1f1f1', '#2BB930'],
-                         duration: 400,
-                         wrpClass: 'circles-wrp',
-                         textClass: 'circles-text',
-                         styleWrapper: true,
-                         styleText: true
-                     })
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">884</div>
+                        <div class="font-weight-bold mb-1">Yahoo</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="36%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
-                     Circles.create({
-                         id: 'circles-3',
-                         radius: 45,
-                         value: 40,
-                         maxValue: 100,
-                         width: 7,
-                         text: 12,
-                         colors: ['#f1f1f1', '#F25961'],
-                         duration: 400,
-                         wrpClass: 'circles-wrp',
-                         textClass: 'circles-text',
-                         styleWrapper: true,
-                         styleText: true
-                     })
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">473</div>
+                        <div class="font-weight-bold mb-1">Kodinger</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="28%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
 
-                     var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-                     var mytotalIncomeChart = new Chart(totalIncomeChart, {
-                         type: 'bar',
-                         data: {
-                             labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-                             datasets: [{
-                                 label: "Total Income",
-                                 backgroundColor: '#ff9e27',
-                                 borderColor: 'rgb(23, 125, 255)',
-                                 data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-                             }],
-                         },
-                         options: {
-                             responsive: true,
-                             maintainAspectRatio: false,
-                             legend: {
-                                 display: false,
-                             },
-                             scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         display: false //this will remove only the label
-                                     },
-                                     gridLines: {
-                                         drawBorder: false,
-                                         display: false
-                                     }
-                                 }],
-                                 xAxes: [{
-                                     gridLines: {
-                                         drawBorder: false,
-                                         display: false
-                                     }
-                                 }]
-                             },
-                         }
-                     });
-
-                     $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-                         type: 'line',
-                         height: '70',
-                         width: '100%',
-                         lineWidth: '2',
-                         lineColor: '#ffa534',
-                         fillColor: 'rgba(255, 165, 52, .14)'
-                     });
-                 });
-             });
-         </script>
-     @endsection
+                    <div class="mb-4">
+                        <div class="text-small float-right font-weight-bold text-muted">418</div>
+                        <div class="font-weight-bold mb-1">Multinity</div>
+                        <div class="progress" data-height="3">
+                            <div class="progress-bar" role="progressbar" data-width="20%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Popular Browser</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="browser browser-chrome"></div>
+                            <div class="mt-2 font-weight-bold">Chrome</div>
+                            <div class="text-muted text-small"><span class="text-primary"><i
+                                        class="fas fa-caret-up"></i></span> 48%</div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="browser browser-firefox"></div>
+                            <div class="mt-2 font-weight-bold">Firefox</div>
+                            <div class="text-muted text-small"><span class="text-primary"><i
+                                        class="fas fa-caret-up"></i></span> 26%</div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="browser browser-safari"></div>
+                            <div class="mt-2 font-weight-bold">Safari</div>
+                            <div class="text-muted text-small"><span class="text-danger"><i
+                                        class="fas fa-caret-down"></i></span> 14%</div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="browser browser-opera"></div>
+                            <div class="mt-2 font-weight-bold">Opera</div>
+                            <div class="text-muted text-small">7%</div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="browser browser-internet-explorer"></div>
+                            <div class="mt-2 font-weight-bold">IE</div>
+                            <div class="text-muted text-small"><span class="text-primary"><i
+                                        class="fas fa-caret-up"></i></span> 5%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-sm-5 mt-md-0">
+                <div class="card-header">
+                    <h4>Visitors</h4>
+                </div>
+                <div class="card-body">
+                    <div id="visitorMap"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>This Week Stats</h4>
+                    <div class="card-header-action">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Filter</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i>
+                                    Electronic</a>
+                                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i>
+                                    T-shirt</a>
+                                <a href="#" class="dropdown-item has-icon"><i class="far fa-circle"></i>
+                                    Hat</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="summary">
+                        <div class="summary-info">
+                            <h4>$1,053</h4>
+                            <div class="text-muted">Sold 3 items on 2 customers</div>
+                            <div class="d-block mt-2">
+                                <a href="#">View All</a>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <h6>Item List <span class="text-muted">(3 Items)</span></h6>
+                            <ul class="list-unstyled list-unstyled-border">
+                                <li class="media">
+                                    <a href="#">
+                                        <img class="mr-3 rounded" width="50"
+                                            src="../assets/img/products/product-1-50.png" alt="product">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="media-right">$405</div>
+                                        <div class="media-title"><a href="#">PlayStation 9</a></div>
+                                        <div class="text-muted text-small">by <a href="#">Hasan
+                                                Basri</a>
+                                            <div class="bullet"></div> Sunday
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="#">
+                                        <img class="mr-3 rounded" width="50"
+                                            src="../assets/img/products/product-2-50.png" alt="product">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="media-right">$499</div>
+                                        <div class="media-title"><a href="#">RocketZ</a></div>
+                                        <div class="text-muted text-small">by <a href="#">Hasan
+                                                Basri</a>
+                                            <div class="bullet"></div> Sunday
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="#">
+                                        <img class="mr-3 rounded" width="50"
+                                            src="../assets/img/products/product-3-50.png" alt="product">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="media-right">$149</div>
+                                        <div class="media-title"><a href="#">Xiaomay Readme 4.0</a>
+                                        </div>
+                                        <div class="text-muted text-small">by <a href="#">Kusnaedi</a>
+                                            <div class="bullet"></div> Tuesday
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="d-inline">Tasks</h4>
+                    <div class="card-header-action">
+                        <a href="#" class="btn btn-primary">View All</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled list-unstyled-border">
+                        <li class="media">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="cbx-1">
+                                <label class="custom-control-label" for="cbx-1"></label>
+                            </div>
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-4.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished
+                                </div>
+                                <h6 class="media-title"><a href="#">Redesign header</a></h6>
+                                <div class="text-small text-muted">Alfa Zulkarnain <div class="bullet">
+                                    </div> <span class="text-primary">Now</span></div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="cbx-2" checked="">
+                                <label class="custom-control-label" for="cbx-2"></label>
+                            </div>
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-5.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="badge badge-pill badge-primary mb-1 float-right">Completed
+                                </div>
+                                <h6 class="media-title"><a href="#">Add a new component</a></h6>
+                                <div class="text-small text-muted">Serj Tankian <div class="bullet">
+                                    </div> 4 Min</div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="cbx-3">
+                                <label class="custom-control-label" for="cbx-3"></label>
+                            </div>
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-2.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="badge badge-pill badge-warning mb-1 float-right">Progress
+                                </div>
+                                <h6 class="media-title"><a href="#">Fix modal window</a></h6>
+                                <div class="text-small text-muted">Ujang Maman <div class="bullet">
+                                    </div> 8 Min</div>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="cbx-4">
+                                <label class="custom-control-label" for="cbx-4"></label>
+                            </div>
+                            <img class="mr-3 rounded-circle" width="50" src="../assets/img/avatar/avatar-1.png"
+                                alt="avatar">
+                            <div class="media-body">
+                                <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished
+                                </div>
+                                <h6 class="media-title"><a href="#">Remove unwanted classes</a></h6>
+                                <div class="text-small text-muted">Farhan A Mujib <div class="bullet">
+                                    </div> 21 Min</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-12 col-sm-12">
+            <form method="post" class="needs-validation" novalidate="">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Quick Draft</h4>
+                    </div>
+                    <div class="card-body pb-0">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" name="title" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please fill in the title
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea class="summernote-simple"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer pt-0">
+                        <button class="btn btn-primary">Save Draft</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-7 col-md-12 col-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Latest Posts</h4>
+                    <div class="card-header-action">
+                        <a href="#" class="btn btn-primary">View All</a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Introduction Laravel 5
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Laravel 5 Tutorial - Installation
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Laravel 5 Tutorial - MVC
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Laravel 5 Tutorial - Migration
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Laravel 5 Tutorial - Deploy
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Laravel 5 Tutorial - Closing
+                                        <div class="table-links">
+                                            in <a href="#">Web Development</a>
+                                            <div class="bullet"></div>
+                                            <a href="#">View</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="font-weight-600"><img src="../assets/img/avatar/avatar-1.png"
+                                                alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi
+                                            Cahya</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                class="fas fa-pencil-alt"></i></a>
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

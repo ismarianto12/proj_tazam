@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('aplikasi')->group(function() {
-    Route::get('/', 'AplikasiController@index');
+Auth::routes();
+
+Route::prefix('aplikasi')->name('aplikasi.')->group(function () {
+    Route::get('/', Modules\Aplikasi\Http\Livewire\Aplikasi::class)->name('');
 });

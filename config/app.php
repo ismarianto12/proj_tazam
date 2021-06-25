@@ -123,8 +123,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'describe' => 'Kemudahan dalam berhaji',
-    'app_name' => 'Aplikasi Tabungan ZAM ZAM',
+    // 'describe' => 'Kemudahan dalam berhaji',
+    // 'app_name' => 'Aplikasi Tabungan ZAM ZAM',
     'vesion' => '1.0',
 
     /*
@@ -234,7 +234,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Login_tazam' => App\Lib\Accessapp::class,
+        'DelMonde' => App\Lib\ModulApp::class
     ],
 
 ];

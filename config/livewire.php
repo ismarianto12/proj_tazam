@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\URL;
+
 return [
 
     /*
@@ -54,7 +56,7 @@ return [
     |
     */
 
-    'asset_url' => '../public',
+     'asset_url' =>  Url('/'),  //production mode env('APP_URL', null).env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
